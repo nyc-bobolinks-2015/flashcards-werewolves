@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+
+=======
+>>>>>>> origin/master
 # # # # C method: play
 #     deck = Deck.new('flashcard_samples.txt')
 #     # make new Deck Object
@@ -61,7 +65,7 @@ class Deck
     CSV.foreach(file, :quote_char => "|") do |row|
       if counter == 2
         counter = 0
-      elsif counter == 0 
+      elsif counter == 0
         cards << Card.new(:definition => row)
         counter+=1
       elsif counter == 1
@@ -75,11 +79,18 @@ class Deck
 
   def start
     cards.each_with_index do |card,card_index|
-      card_index += 1
       puts "Question #{card_index}"
       puts "#{card.definition}"
-      # call another method that user input == card.answer
+      user_answer_right?(user_answer = gets.chomp, card_index)
     end
+  end
+
+  def user_answer_right?(user_answer, card_index)
+    user_answer == cards[card_index].answer
+  end
+
+  def answer_feedback(user_answer_right)
+
   end
 
 end
