@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 # # # # C method: play
 #     deck = Deck.new('flashcard_samples.txt')
 #     # make new Deck Object
