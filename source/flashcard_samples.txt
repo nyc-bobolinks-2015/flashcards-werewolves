@@ -67,7 +67,7 @@ nil
 Boolean negation. i.e. not true # false, not 10 # false, not false # true.
 not
 
-Boolean or. Differs from || in that or has lower precedence.
+Boolean or. Differs from pipes in that or has lower precedence.
 or
 
 Causes unconditional re-execution of a code block, with the same parameter bindings as the current execution.
