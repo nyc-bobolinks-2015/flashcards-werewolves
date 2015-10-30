@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 # # # # C method: play
 #     deck = Deck.new('flashcard_samples.txt')
 #     # make new Deck Object
@@ -56,9 +59,22 @@ class Deck
     @file = file
   end
 
-  def parse_cards
-    new_cards = CSV.foreach(file, :headers => false)
-    cards << row
+  def parse_cards(file)
+    counter = 0
+    card_num = 0
+    CSV.foreach(file, :quote_char => "|") do |row|
+      if counter == 2
+        counter = 0
+      elsif counter == 0
+        cards << Card.new(:definition => row)
+        counter+=1
+      elsif counter == 1
+        cards[card_num].answer = row
+        card_num += 1
+        counter += 1
+      end
+    end
+    cards
   end
 
   def start
